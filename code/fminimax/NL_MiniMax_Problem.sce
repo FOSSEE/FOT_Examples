@@ -25,22 +25,13 @@ function f = ObjectiveFunction(X)
     end
     f1(2:5) = f(1) + 10*g(2:5);
 endfunction
-// Non linear inequality constraints
-function [C, Ceq] = NLConstraints(X)
-    C(1) = -(-2*X(1)^2  - 3*X(2)^4 - X(3) - 4*X(4)^2 - 5*X(5) + 127);
-    C(2) = -(-7*X(1) - 3*X(2) - 10*X(3)^2 - X(4) + X(5) + 282);
-    C(3) = -(-23*X(1) - X(2)^2 - 6*X(6)^2 + 8*X(7) + 196);
-    C(4) = -(-4*X(1)^2 - X(2)^2 + 3*X(1)*X(2) - 2*X(3)^2 - 5*X(6) + 11*X(7));
-    C = C';
-    Ceq = [];
-endfunction
 
 A =[]; b = []; Aeq = []; beq = [];lb = [];ub = [];
 // Initial guess given to the solver
-x0 = [2.33050, 1.95137, -0.47754, 4.36573, -0.62449, 1.03813, 1.59423];
+x0 = [2, 1, 0, 4, 0, 1, 1];
 // Solving the solvers
 options = list("maxiter", 4000, "cputime", [6000]);
-[x,fval,maxfval,exitflag,output,lambda] = fminimax(ObjectiveFunction,x0,A,b,Aeq,beq,lb,ub,NLConstraints,options);
+[x,fval,maxfval,exitflag,output,lambda] = fminimax(ObjectiveFunction,x0,A,b,Aeq,beq,lb,ub,[],options);
 
 // Result representation
 clc

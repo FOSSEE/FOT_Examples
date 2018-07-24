@@ -1,4 +1,4 @@
-// J.Hald, K Madsen, Reference:Combined LP and quasi-Newton methos for minimax optimization, Mathematical Programming, Springer, 1981
+// J.Hald, K Madsen, Combined LP and quasi-Newton methods for minimax optimization, Mathematical Programming, Springer, 1981
 //    Min F = max|fi(x)|
 //    fi(X) = (X1 + X2*ti - exp(ti))^2 + (X3 + X4*sin(ti) - cos(ti))^2 where i varies from 1 to 20
 //    ti = 0.2i
